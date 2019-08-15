@@ -1197,7 +1197,7 @@ There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR P
       forced_stdlibs.append('libfetch')
       next_arg_index += 1
       options.js_libraries.append(shared.path_from_root('src', 'library_fetch.js'))
-      if shared.Settings.USE_PTHREADS:
+      if shared.Settings.USE_PTHREADS and not shared.Settings.WASM_BACKEND:
         shared.Settings.FETCH_WORKER_FILE = unsuffixed(os.path.basename(target)) + '.fetch.js'
 
     if shared.Settings.DEMANGLE_SUPPORT:

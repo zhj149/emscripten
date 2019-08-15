@@ -42,7 +42,7 @@ var Fetch = {
   },
 #endif
 
-#if USE_PTHREADS
+#if 0
   initFetchWorker: function() {
     var stackSize = 128*1024;
     var stack = allocate(stackSize>>2, "i32*", ALLOC_DYNAMIC);
@@ -65,7 +65,7 @@ var Fetch = {
       Fetch.dbInstance = db;
 
       if (isMainThread) {
-#if USE_PTHREADS
+#if 0
         Fetch.initFetchWorker();
 #endif
         removeRunDependency('library_fetch_init');
@@ -78,7 +78,7 @@ var Fetch = {
       Fetch.dbInstance = false;
 
       if (isMainThread) {
-#if USE_PTHREADS
+#if 0
         Fetch.initFetchWorker();
 #endif
         removeRunDependency('library_fetch_init');
@@ -87,7 +87,7 @@ var Fetch = {
     Fetch.openDatabase('emscripten_filesystem', 1, onsuccess, onerror);
 #endif // ~FETCH_SUPPORT_INDEXEDDB
 
-#if USE_PTHREADS
+#if 0
     if (isMainThread) {
 #if FETCH_SUPPORT_INDEXEDDB
       addRunDependency('library_fetch_init');
