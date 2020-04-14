@@ -196,3 +196,7 @@ var USE_CXX = 0;
 // JS symbols. This is used by LLD_REPORT_UNDEFINED to generate a list of all
 // JS library symbols.
 var ONLY_CALC_JS_SYMBOLS = 0;
+
+// Set to true if the program has a main function.
+// This is only accurate if INGNORE_MISSING_MAIN=0
+var HAS_MAIN = 1;
